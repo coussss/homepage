@@ -8,6 +8,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     padding: 1vh;
+    background-color: black;
 }
 
 .nav-container {
@@ -40,6 +41,34 @@ body {
     flex-wrap: nowrap;
     justify-content: space-between;
     margin-left: 20px;
+}
+
+.dropdown {
+    margin-left: auto;
+    margin-right: 10px;
+    display: none;
+}
+.btn {
+    background: none;
+    border: none;
+}
+.btn:hover {
+    background: none;
+}
+.btn:focus {
+    background: none;
+}
+.btn:active {
+    background: none;
+}
+
+@media (max-width: 600px) {
+    .navigate {
+        display: none;
+    }
+    .dropdown {
+        display: block;
+    }
 }
 
 .social-media {
@@ -140,6 +169,9 @@ img {
 }
 
 .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: black;
     color: white;
     display: flex;
@@ -149,6 +181,7 @@ img {
 }
 
 /* ---------------- ABOUT PAGE ---------------- */
+
 
 .about-container {
     display: flex;
@@ -192,6 +225,65 @@ img {
 .title {
     text-align: center;
     margin: 20px;
+}
+
+/* ---------------- CONTACT PAGE ---------------- */
+
+.contact-box {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 50vw;
+    margin: auto;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border: none;
+    height: 60px;
+    border-radius: 5px;
+    padding-left: 20px;
+    margin: 10px;
+}
+
+form h3 {
+    color: white;
+    margin: 20px;
+}
+
+form textarea {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+}
+
+form button {
+    margin: auto;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(85, 85, 85);
+    color: white;
+    font-weight: 600;
+    font-size: 1em;
+    width: 150px;
+}
+
+input:focus {
+    outline: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: 70vh;
 }
 
 /* {
