@@ -30,3 +30,17 @@ document.getElementById("reddit").onclick = function(){
 document.getElementById("discord").onclick = function(){
     window.open("https://discordapp.com/users/220945317003132929");
 }
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry)
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((element) => observer.observe(element));

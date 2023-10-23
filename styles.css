@@ -107,6 +107,7 @@ svg:hover {
     margin-top: 20vh;
     font-size: 1em;;
     padding: 2vh;
+    animation: load 1s;
 }
 
 .intro {
@@ -148,6 +149,30 @@ img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-50%);
+    transition: .5s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+/* ---------------- REDUCED MOTION ---------------- */
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        opacity: 1;
+        transition: none;
+    }
 }
 
 .quote-container {
@@ -202,9 +227,24 @@ img {
     border-radius: 10px;
 }
 
+.container1 {
+    animation: load .8s ease;
+}
+
+.container2 {
+    animation: load2 1.2s ease;
+}
+
 .image1 {
     width: 300px;
     float: left;
+    margin: 20px;
+    margin-top: 0px;
+}
+
+.image2 {
+    width: 300px;
+    float: right;
     margin: 20px;
     margin-top: 0px;
 }
@@ -213,14 +253,16 @@ img {
     .image1 {
         float: none;
         width: 400px;
+        margin: auto;
+        margin-bottom: 20px;
     }
-}
 
-.image2 {
-    width: 300px;
-    float: right;
-    margin: 20px;
-    margin-top: 0px;
+    .image2 {
+        float: none;
+        width: 400px;
+        margin: auto;
+        margin-bottom: 20px;
+    }
 }
 
 .title {
@@ -319,6 +361,93 @@ form {
 .thanks-container p {
     margin-top: 20px;
 }
+
+/* ---------------- GALLERY PAGE ---------------- */
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: 5vw;
+    row-gap: 50px;
+    margin-top: 20px;
+}
+
+.gallery-container p {
+    color: white;
+    display: grid;
+}
+
+.image {
+    display: flex;
+    background-color: white;
+    width: 25vw;
+    aspect-ratio: 3/4;
+}
+
+.gallery-box {
+    transition: .2s ease;
+}
+
+.gallery-box:has(.image:hover) {
+    transform: scale(1.1);
+}
+
+.image:hover {
+    box-shadow: 0 0 3vh rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 1000px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .image {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-container {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+
+    .image {
+        width: 60vw;
+    }
+}
+
+/* ---------------- KEYFRAMES ---------------- */
+
+@keyframes load {
+    0% {
+        opacity: 0%;
+        transform: translateY(-10%)
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+@keyframes load2 {
+    0% {
+        opacity: 0%;
+        transform: translateY(-10%)
+    }
+
+    33% {
+        opacity: 0%;
+        transform: translateY(-10%)
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
 
 /* {
     outline: 1px solid red;
